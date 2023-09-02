@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Quiz Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application offers users a seamless experience to attempt a quiz fetched from an external API and view their results.
 
-## Available Scripts
+## Table of Contents
+- [Setup and Installation Guide](#setup-and-installation-guide)
+- [Component Overview](#component-overview)
+- [Application Overview](#application-overview)
+- [Challenges Faced](#challenges-faced)
 
-In the project directory, you can run:
+## Setup and Installation Guide
 
-### `npm start`
+1. **Clone the Repository**
+    ```bash
+    git clone `https://github.com/raimanish9894/quiz-app.git`
+    cd quiz-app
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Start the Development Server**
+    ```bash
+    npm start
+    ```
 
-### `npm test`
+    This will start the development server on `http://localhost:3000/`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Component Overview
 
-### `npm run build`
+- **`StartPage`**: This component displays the initial screen where users can start the quiz.
+  
+- **`Timer`**: Responsible for keeping track of the time and signaling when the quiz time is over.
+  
+- **`Question`**: Displays individual quiz questions and handles user's choices.
+  
+- **`OverviewPanel`**: Gives an overview of the questions, showing which ones have been answered, and allowing users to navigate between them.
+  
+- **`ReportPage`**: Displays a report of the user's answers and the correct answers after the quiz is completed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **`QuizContext`**: Provides state management for the application, storing information about current question, user's answers, and other relevant quiz state.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Application Overview
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application starts with a `StartPage` where the user can initiate the quiz. Once started, the user is presented with a series of questions fetched from an external API. The user can navigate between questions, choose answers, and view the time remaining through the `Timer` component. The `OverviewPanel` offers a quick glance at the questions, showing which ones have been visited and answered. After answering all questions or when the timer runs out, the user is taken to the `ReportPage` where they can review their performance.
 
-### `npm run eject`
+## Challenges Faced
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **State Management**: Managing the state for current questions, user answers, and navigation was a primary challenge. The `QuizContext` was used to centralize the state and provide a structured way to update and read from it.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Fetching and Formatting Questions**: Questions fetched from the API came in a format that needed restructuring for the application. Choices for each question were randomized and formatted for display.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Navigation and Completion Logic**: Ensuring that the user can navigate between questions, and deciding when to move the user to the report section based on their answers or timer expiration, required careful logic and state checks.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. **Design and Responsiveness**: The application needed to be both visually appealing and responsive. Making sure it looked good and functioned well on various screen sizes was another challenge faced.
